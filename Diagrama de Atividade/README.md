@@ -45,4 +45,6 @@ O diagrama aborda:
 
 ## 🖼️ Visualização do Diagrama
 
-(link)
+![Prime Language](https://github.com/user-attachments/assets/5efa91d5-77ae-438a-9387-a4ab8fcb4ed1)
+
+

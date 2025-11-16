@@ -35,7 +35,7 @@ O diagrama aborda:
 2. O sistema valida o login com o banco de dados.  
 3. Após o acesso autorizado, o aluno pode:  
    - Visualizar e acessar cursos e aulas.  
-   - Jogar *WordQuizzes* e realizar atividades.  
+   - Jogar *WordGuess* e realizar atividades.  
    - Alterar dados de perfil ou deletar a conta.  
    - Participar da comunidade (adicionar amigos, enviar mensagens).  
 4. Todas as alterações e interações são **salvas ou validadas no banco de dados**.  
@@ -46,5 +46,6 @@ O diagrama aborda:
 ## 🖼️ Visualização do Diagrama
 
 ![Prime Language](https://github.com/user-attachments/assets/5efa91d5-77ae-438a-9387-a4ab8fcb4ed1)
+
 
 

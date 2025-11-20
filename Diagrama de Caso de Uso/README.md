@@ -82,4 +82,6 @@ Essas ações garantem o bom funcionamento da plataforma e o engajamento dos usu
 
 ## 🖼️ Visualização do Diagrama
 
-:P
+![Caso de Uso](https://github.com/user-attachments/assets/a6ea3ab9-ac09-4b24-beaf-c99d419d669e)
+
+

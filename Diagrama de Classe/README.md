@@ -101,3 +101,5 @@ Isso garante que, mesmo com múltiplas possibilidades e caminhos distintos, **to
 
 Abaixo está a representação gráfica do diagrama de atividade:
 
+![Diagrama de Classe - Prime Language](https://github.com/user-attachments/assets/c278e594-9b6e-48e7-af2c-df304e39a9de)
+

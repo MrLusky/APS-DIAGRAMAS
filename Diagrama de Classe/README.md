@@ -1,105 +1,243 @@
-# 🗂️ Diagrama de Atividade — Prime Language
+# 🧱 Diagrama de Classe — Prime Language
 
-Este diagrama representa o **fluxo de atividades do usuário dentro da plataforma Prime Language**, descrevendo de forma visual **como o aluno navega pelo sistema**, quais caminhos pode seguir, e como as funcionalidades internas são ativadas durante essa navegação.
+Este diagrama de classe representa **a estrutura interna do sistema Prime Language**, mostrando como os dados são organizados, como as entidades se relacionam entre si e quais operações cada classe oferece.
 
-Enquanto um diagrama de caso de uso mostra *o que* o sistema oferece, o diagrama de atividade descreve *como* esses processos acontecem na prática.
+Enquanto outros diagramas mostram o fluxo ou funcionalidades, o diagrama de classe revela **a arquitetura lógica do sistema**, servindo como base para implementação do backend, Banco de Dados e regras de negócio.
 
 ---
 
 ## 🎯 Objetivo do Diagrama
 
-O objetivo deste diagrama é **documentar o comportamento do usuário dentro do sistema**, destacando:
+O objetivo do diagrama é:
 
-- As possíveis escolhas que o aluno pode tomar ao navegar.
-- Os diferentes caminhos que um fluxo pode assumir.
-- Os pontos onde processos ocorrem em paralelo (ações simultâneas).
-- As condições que direcionam o usuário a fluxos distintos.
-- O ponto final comum após todas as interações.
+- Organizar as entidades principais do sistema.
+- Definir atributos e comportamentos de cada classe.
+- Representar os relacionamentos entre elas:
+  - **Associações**
+  - **Cardinalidades**
+  - **Dependências**
+  - **Agregações/Composições** (quando aplicável)
+- Deixar clara a estrutura necessária para:
+  - matrículas  
+  - lições  
+  - testes  
+  - progressos  
+  - exercícios  
+  - comunidade  
+  - usuários  
 
-Este diagrama é útil para desenvolvedores, designers de lógica, professores da equipe e qualquer membro que precise entender **a dinâmica completa do funcionamento do sistema**.
-
----
-
-## 🧩 Componentes Representados
-
-| Elemento                   | Significado                                                                 |
-| -------------------------- | --------------------------------------------------------------------------- |
-| **Atividades**             | Ações realizadas pelo usuário ou pelo sistema (ex.: “Acessar aula”).        |
-| **Nós de Decisão**         | Pontos onde o fluxo escolhe um caminho entre alternativas.                  |
-| **Merge Nodes**            | Convergem vários caminhos alternativos para um único ponto.                 |
-| **Fork Nodes**             | Dividem o fluxo em ações paralelas que ocorrem simultaneamente.             |
-| **Join Nodes**             | Aguardam ações paralelas terminarem para continuar o fluxo.                 |
-| **Activity Final Node**    | Representa o encerramento do processo.                                      |
+Este diagrama funciona como referência para desenvolvedores, equipe de banco de dados, documentações de API e integrações futuras.
 
 ---
 
-## 🔄 Fluxo Principal do Sistema
+## 🧩 Classes Principais
 
-### 🧑‍🎓 **Entrada do Usuário**
+### 🧑‍🏫 **Usuário**
+Representa qualquer pessoa cadastrada na plataforma.
 
-O fluxo se inicia quando o aluno acessa o sistema.  
-Ele pode:
+**Atributos:**
+- id  
+- nome  
+- email  
+- senha_hash  
+- data_criacao  
+- ultima_atv  
 
-- Acessar página de cursos  
-- Selecionar curso  
-- Acessar aula  
-- Jogar WordGuess  
-- Acessar trilhas  
-- Acessar atividades  
-- Acessar comunidade  
-- Acessar perfil  
+**Métodos:**
+- atualizar_perfil()  
+- iniciar_teste_nivel()  
+- matricular_curso()  
 
-Caso o aluno **não possua conta**, é direcionado ao cadastro.  
-Caso **possua conta**, segue para o login.
-
----
-
-## 🧭 Navegação Dentro do Sistema
-
-Após logado, o usuário pode seguir diferentes caminhos independentes:
-
-- Acessar trilhas de aprendizado  
-- Acessar comunidade  
-  - Se já possui amizade → abrir chat → mandar mensagem  
-  - Se não possui → adicionar amigo  
-- Acessar atividades  
-- Jogar WordGuess  
-- Acessar o próprio perfil  
-  - Alterar dados pessoais  
-  - Salvar mudanças  
-  - Deletar conta  
-
-Essas ações são **alternativas** e representadas por nós de decisão e merge, mostrando que o aluno **escolhe um único caminho por vez**.
+O usuário está ligado a matrículas, tentativas de teste e postagens da comunidade.
 
 ---
 
-## 🔀 Ações Internas Simultâneas
+### 🌐 **Idioma**
+Representa os idiomas suportados pelo sistema.
 
-Ao realizar certas ações — como assistir aula, jogar WordGuess ou realizar atividades — o sistema executa processos internos simultaneamente.
+**Atributos:**
+- id  
+- nome  
+- sigla  
 
-Isso é representado por um **Fork Node**, que divide o fluxo em:
-
-- Adicionar palavras aprendidas  
-- Salvar progresso  
-- Adicionar +1 à streak (somente se for o primeiro acesso do dia)  
-
-Essas atividades ocorrem **em paralelo**, garantindo atualização completa do progresso.
-
-Posteriormente, um **Join Node** reúne esses caminhos, garantindo que todas as ações tenham sido concluídas antes de encerrar o fluxo.
+Relaciona-se com vários cursos (1:N) e com testes de nível.
 
 ---
 
-## 🧵 Finalização do Fluxo
+### 📘 **Curso**
+Cada idioma possui cursos específicos.
 
-Todas as rotas possíveis — independentemente da ação escolhida — convergem para um único **Activity Final Node**, representando o término da interação do usuário.
+**Atributos:**
+- id  
+- idioma_id  
+- nome  
+- nivel  
+- descricao  
 
-Isso garante que, mesmo com múltiplas possibilidades e caminhos distintos, **todos os fluxos possuem um encerramento claro e consistente**.
+**Métodos:**
+- listar_licoes()  
+- recomendar_proxima_licao()  
+
+Relaciona-se com **Lições** e **Matrículas**.
+
+---
+
+### 📚 **Lição**
+Elemento central do aprendizado dentro do curso.
+
+**Atributos:**
+- id  
+- curso_id  
+- titulo  
+- ordem  
+- tipo  
+- duracao  
+
+**Métodos:**
+- listar_exercicios()  
+- marcar_concluido()  
+
+---
+
+### 📝 **Exercício**
+Associado diretamente a uma lição.
+
+**Atributos:**
+- id  
+- licao_id  
+- tipo_exercicio  
+- enunciado  
+- resposta_correta  
+- midia  
+
+**Métodos:**
+- corrigir_resposta()  
+
+---
+
+### 🎓 **Matrícula**
+Representa o vínculo entre usuário e curso.
+
+**Atributos:**
+- id  
+- usuario_id  
+- curso_id  
+- data  
+- status  
+
+**Métodos:**
+- cancelar()  
+- reativar()  
+
+Uma matrícula está ligada às lições concluídas e ao progresso.
+
+---
+
+### 📈 **Progresso**
+Registra o avanço de cada usuário nas lições.
+
+**Atributos:**
+- id  
+- matricula_id  
+- licao_id  
+- data_atualizacao  
+
+**Métodos:**
+- atualizar_status()  
+
+---
+
+### 🧪 **Teste de Nível**
+Determina o nível do aluno no idioma.
+
+**Atributos:**
+- id  
+- idioma_id  
+- nome  
+- descricao  
+- numero_questoes  
+
+**Métodos:**
+- gerar_prova()  
+
+---
+
+### 🗳️ **Tentativa de Teste**
+Cada realização do teste de nível fica registrada aqui.
+
+**Atributos:**
+- id  
+- teste_id  
+- usuario_id  
+- pontuacao  
+- data  
+- nivel_sugerido  
+
+**Método:**
+- calcular_nivel()  
+
+---
+
+### 💬 **Depoimento**
+Depoimentos deixados pelo usuário.
+
+**Atributos:**
+- id  
+- usuario_id  
+- texto  
+- data  
+- nota  
+
+---
+
+### 🗨️ **Postagem da Comunidade**
+Usada na parte social da plataforma.
+
+**Atributos:**
+- id  
+- usuario_id  
+- conteudo  
+- data  
+- resposta  
+
+**Métodos:**
+- curtir()  
+- editar()  
+- deletar()  
+
+---
+
+## 🔗 Relacionamentos Importantes
+
+- **Idioma 1..* → Curso**  
+  Um idioma possui vários cursos.
+
+- **Curso 1..* → Lição**  
+  Cada curso contém várias lições.
+
+- **Lição 1..* → Exercício**  
+  Toda lição possui exercícios.
+
+- **Usuário 1..* → Matrícula**  
+  O usuário pode se matricular em diversos cursos.
+
+- **Matrícula 1..* → Progresso**  
+  Cada matrícula gera registros de progresso.
+
+- **Usuário 1..* → Tentativa de Teste**  
+  Cada tentativa registra pontuação e nível sugerido.
+
+- **Usuário 1..* → Postagem Comunidade / Depoimento**  
+  Representa interações sociais.
+
+- **Teste de Nível 1..* → Tentativas**  
+  Um teste pode ter várias tentativas feitas por diferentes usuários.
 
 ---
 
 ## 🖼️ Visualização do Diagrama
 
-Abaixo está a representação gráfica do diagrama de atividade:
 
 ![Diagrama de Classe - Prime Language](https://github.com/user-attachments/assets/c278e594-9b6e-48e7-af2c-df304e39a9de)
+
 

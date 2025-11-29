@@ -19,33 +19,24 @@ O diagrama aborda:
 
 ---
 
-## 🧩 Partes do Sistema Representadas
-
-| Camada | Responsável | Funções principais |
-|:--|:--|:--|
-| **Aluno (Usuário)** | Interage com o sistema | Realiza login, acessa cursos, gerencia perfil e participa da comunidade. |
-| **Site/App (Interface)** | Executa ações de interface | Exibe páginas, processa interações e envia requisições ao servidor. |
-| **Banco de Dados (Back-end)** | Armazena e valida informações | Autentica usuários, salva alterações, gerencia dados e registros. |
-
----
-
 ## 🔄 Fluxo Geral
 
-1. O aluno entra no site/app e insere seu e-mail e senha.  
-2. O sistema valida o login com o banco de dados.  
-3. Após o acesso autorizado, o aluno pode:  
+1. O aluno entra no site/app e insere seu e-mail e senha, seja para cadastro ou para login.  
+2. Após o acesso autorizado, o aluno pode:  
    - Visualizar e acessar cursos e aulas.  
    - Jogar *WordGuess* e realizar atividades.  
    - Alterar dados de perfil ou deletar a conta.  
    - Participar da comunidade (adicionar amigos, enviar mensagens).  
-4. Todas as alterações e interações são **salvas ou validadas no banco de dados**.  
-5. Por fim, o aluno pode **fazer logout**, encerrando sua sessão.
+3. Todas as alterações e interações são **salvas ou validadas no banco de dados**.  
+4. Por fim, o aluno pode **fazer logout**, encerrando sua sessão.
 
 ---
 
 ## 🖼️ Visualização do Diagrama
 
-![Prime Language](https://github.com/user-attachments/assets/5efa91d5-77ae-438a-9387-a4ab8fcb4ed1)
+![Diagrama de Atividade - Prime Language](https://github.com/user-attachments/assets/4f561a3a-3100-4f2b-aab5-0c0a2b006d2a)
+
+
 
 
 

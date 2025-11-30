@@ -103,5 +103,18 @@ Ao final, o diagrama deixa claro **quem encerra a comunicação e como o process
 
 Abaixo está a representação gráfica do diagrama de sequência:
 
-> *(Inserir aqui a imagem gerada no Astah, via upload no GitHub.)*
+![Cadastro](https://github.com/user-attachments/assets/a967beeb-d1c9-4cb5-b860-b23e979a5e86)
+![Login](https://github.com/user-attachments/assets/f395c274-0863-417a-8b99-1291da738088)
+![Trilhas](https://github.com/user-attachments/assets/1c228400-80ca-481f-bd63-7fbad141298c)
+![Atividades](https://github.com/user-attachments/assets/4e21a04f-8f6e-4d38-b3a2-318a4087446c)
+![Comunidade - Adicionar amigo](https://github.com/user-attachments/assets/195b1e67-fa04-411e-ab5a-18910baf3c73)
+![Comunidade - Mandar Mensagem](https://github.com/user-attachments/assets/ee37724d-6f6f-41e7-81f6-d919478450ff)
+![WordGuess](https://github.com/user-attachments/assets/3c1cd55a-d73b-4dad-a526-8c09adf7ba2d)
+
+
+
+
+
+
+
 

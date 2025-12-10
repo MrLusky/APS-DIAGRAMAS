@@ -101,7 +101,9 @@ Isso garante que, mesmo com múltiplas possibilidades e caminhos distintos, **to
 
 Abaixo está a representação gráfica do diagrama de atividade:
 
-![Diagrama de Atividade - Prime Language](https://github.com/user-attachments/assets/4f561a3a-3100-4f2b-aab5-0c0a2b006d2a)
+![Diagrama de Atividade - Prime Language](https://github.com/user-attachments/assets/717555de-7c1a-4861-9a5d-fe9018aedb74)
+
+
 
 
 
